@@ -1,0 +1,163 @@
+#-----------------------------------------------------------
+# Vivado v2018.3_AR72075 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Sep 14 10:48:00 2020
+# Process ID: 13941
+# Current directory: /2020/mpsoc/training/irq_pl/project_1
+# Command line: vivado project_1.xpr
+# Log file: /2020/mpsoc/training/irq_pl/project_1/vivado.log
+# Journal file: /2020/mpsoc/training/irq_pl/project_1/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project project_1.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/2020/mpsoc/training/irq_pl/ip_repo/myip_1.0'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/2020/xilinx/vivado/2018.3/vivado/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/2020/xilinx/vivado/2018.3/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:07 . Memory (MB): peak = 6541.078 ; gain = 118.238 ; free physical = 306 ; free virtual = 33953
+update_compile_order -fileset sources_1
+open_bd_design {/2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/Base_Zynq_MPSoC.bd}
+Adding cell -- xilinx.com:ip:zynq_ultra_ps_e:3.2 - zynq_ultra_ps_e_0
+Adding cell -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding cell -- xilinx.com:ip:axi_interconnect:2.1 - ps8_0_axi_periph
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_ds
+Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding cell -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_ds
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps8_0_99M
+Adding cell -- xilinx.com:ip:blk_mem_gen:8.4 - blk_mem_gen_0
+Adding cell -- xilinx.com:ip:axi_bram_ctrl:4.1 - axi_bram_ctrl_0
+Adding cell -- xilinx.com:ip:xlconcat:2.1 - xlconcat_0
+Successfully read diagram <Base_Zynq_MPSoC> from BD file </2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/Base_Zynq_MPSoC.bd>
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv user.org:user:myip:1.1 myip_0
+endgroup
+connect_bd_net [get_bd_pins myip_0/slv_reg0] [get_bd_pins xlslice_0/Din]
+delete_bd_objs [get_bd_nets pl_irq_ll_1]
+connect_bd_net [get_bd_ports pl_irq_ll] [get_bd_pins xlconcat_0/In3]
+startgroup
+set_property -dict [list CONFIG.NUM_PORTS {6}] [get_bd_cells xlconcat_0]
+endgroup
+connect_bd_net [get_bd_pins xlslice_0/Dout] [get_bd_pins xlconcat_0/In5]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/zynq_ultra_ps_e_0/pl_clk0 (99 MHz)} Clk_slave {Auto} Clk_xbar {/zynq_ultra_ps_e_0/pl_clk0 (99 MHz)} Master {/zynq_ultra_ps_e_0/M_AXI_HPM1_FPD} Slave {/myip_0/S00_AXI} intc_ip {/ps8_0_axi_periph} master_apm {0}}  [get_bd_intf_pins myip_0/S00_AXI]
+</myip_0/S00_AXI/S00_AXI_reg> is being mapped into </zynq_ultra_ps_e_0/Data> at <0xA0001000 [ 4K ]>
+save_bd_design
+Wrote  : </2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/Base_Zynq_MPSoC.bd> 
+Wrote  : </2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/ui/bd_1f8d8c75.ui> 
+regenerate_bd_layout
+save_bd_design
+Wrote  : </2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/ui/bd_1f8d8c75.ui> 
+reset_run synth_1
+reset_run Base_Zynq_MPSoC_xbar_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /zynq_ultra_ps_e_0/pl_ps_irq0
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+WARNING: [BD 41-2180] Resetting the memory initialization file of </blk_mem_gen_0> to default.
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ps8_0_axi_periph/m00_couplers/auto_ds/S_AXI(0) and /ps8_0_axi_periph/xbar/M00_AXI(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ps8_0_axi_periph/m00_couplers/auto_ds/S_AXI(0) and /ps8_0_axi_periph/xbar/M00_AXI(16)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ps8_0_axi_periph/m01_couplers/auto_ds/S_AXI(0) and /ps8_0_axi_periph/xbar/M01_AXI(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ps8_0_axi_periph/m01_couplers/auto_ds/S_AXI(0) and /ps8_0_axi_periph/xbar/M01_AXI(16)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ps8_0_axi_periph/m02_couplers/auto_ds/S_AXI(0) and /ps8_0_axi_periph/xbar/M02_AXI(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ps8_0_axi_periph/m02_couplers/auto_ds/S_AXI(0) and /ps8_0_axi_periph/xbar/M02_AXI(16)
+Wrote  : </2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/Base_Zynq_MPSoC.bd> 
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps8_0_axi_periph/xbar/s_axi_awid'(17) to net 's00_couplers_to_xbar_AWID'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps8_0_axi_periph/xbar/s_axi_arid'(17) to net 's00_couplers_to_xbar_ARID'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps8_0_axi_periph/xbar/s_axi_awid'(17) to net 's01_couplers_to_xbar_AWID'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps8_0_axi_periph/xbar/s_axi_arid'(17) to net 's01_couplers_to_xbar_ARID'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_bid'(16) to net 'zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BID'(17) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_rid'(16) to net 'zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RID'(17) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/blk_mem_gen_0/addra'(32) to net 'axi_bram_ctrl_0_BRAM_PORTA_ADDR'(12) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp0_bid'(16) to net 'zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID'(17) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp0_rid'(16) to net 'zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID'(17) - Only lower order bits will be connected.
+VHDL Output written to : /2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/synth/Base_Zynq_MPSoC.v
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps8_0_axi_periph/xbar/s_axi_awid'(17) to net 's00_couplers_to_xbar_AWID'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps8_0_axi_periph/xbar/s_axi_arid'(17) to net 's00_couplers_to_xbar_ARID'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps8_0_axi_periph/xbar/s_axi_awid'(17) to net 's01_couplers_to_xbar_AWID'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/ps8_0_axi_periph/xbar/s_axi_arid'(17) to net 's01_couplers_to_xbar_ARID'(16) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_bid'(16) to net 'zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_BID'(17) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp1_rid'(16) to net 'zynq_ultra_ps_e_0_M_AXI_HPM1_FPD_RID'(17) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/blk_mem_gen_0/addra'(32) to net 'axi_bram_ctrl_0_BRAM_PORTA_ADDR'(12) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp0_bid'(16) to net 'zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_BID'(17) - Only lower order bits will be connected.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/zynq_ultra_ps_e_0/maxigp0_rid'(16) to net 'zynq_ultra_ps_e_0_M_AXI_HPM0_FPD_RID'(17) - Only lower order bits will be connected.
+VHDL Output written to : /2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/sim/Base_Zynq_MPSoC.v
+VHDL Output written to : /2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/hdl/Base_Zynq_MPSoC_wrapper.v
+INFO: [xilinx.com:ip:zynq_ultra_ps_e:3.2-0] Base_Zynq_MPSoC_zynq_ultra_ps_e_0_0: 
+Changes in your design (including the PCW configuration settings) are not automatically exported from Vivado to Xilinx's SDK, Petalinux or Yocto.
+This is by design to avoid disrupting existing embedded development efforts. To have any changes of your design taking effect in the embedded software flow please export your
+design by going through Vivado's main menu, click on File, then Export finally select Export Hardware, please ensure you click on the Include BitStream option.
+The auto-generated HDF file is all you need to import in Xilinx's SDK, Petalinux or Yocto for your changes to be reflected in the Embedded Software Flow.
+For more information, please consult PG201, section: Exporting PCW Settings to Embedded Software Flows
+INFO: [PSU-0] Address Range of DDR (0x7ff00000 to 0x7fffffff) is reserved by PMU for internal purpose.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block zynq_ultra_ps_e_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps8_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_ps8_0_99M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block blk_mem_gen_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_bram_ctrl_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block myip_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/ip/Base_Zynq_MPSoC_auto_ds_0/Base_Zynq_MPSoC_auto_ds_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps8_0_axi_periph/m00_couplers/auto_ds .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/ip/Base_Zynq_MPSoC_auto_pc_0/Base_Zynq_MPSoC_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps8_0_axi_periph/m00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/ip/Base_Zynq_MPSoC_auto_ds_1/Base_Zynq_MPSoC_auto_ds_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps8_0_axi_periph/m01_couplers/auto_ds .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/ip/Base_Zynq_MPSoC_auto_ds_2/Base_Zynq_MPSoC_auto_ds_2_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps8_0_axi_periph/m02_couplers/auto_ds .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/ip/Base_Zynq_MPSoC_auto_pc_1/Base_Zynq_MPSoC_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps8_0_axi_periph/m02_couplers/auto_pc .
+Exporting to file /2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/hw_handoff/Base_Zynq_MPSoC.hwh
+Generated Block Design Tcl file /2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/hw_handoff/Base_Zynq_MPSoC_bd.tcl
+Generated Hardware Definition File /2020/mpsoc/training/irq_pl/project_1/project_1.srcs/sources_1/bd/Base_Zynq_MPSoC/synth/Base_Zynq_MPSoC.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP Base_Zynq_MPSoC_auto_ds_0, cache-ID = 9257983d3cad76fa; cache size = 12.180 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP Base_Zynq_MPSoC_auto_ds_1, cache-ID = fdd638c502ee13a3; cache size = 12.180 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP Base_Zynq_MPSoC_auto_ds_2, cache-ID = 9257983d3cad76fa; cache size = 12.180 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP Base_Zynq_MPSoC_auto_pc_1, cache-ID = 96f8e9e6ddbe541c; cache size = 12.180 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP Base_Zynq_MPSoC_auto_pc_0, cache-ID = 96f8e9e6ddbe541c; cache size = 12.180 MB.
+[Mon Sep 14 10:52:39 2020] Launched Base_Zynq_MPSoC_zynq_ultra_ps_e_0_0_synth_1, Base_Zynq_MPSoC_xbar_0_synth_1, Base_Zynq_MPSoC_myip_0_0_synth_1, synth_1...
+Run output will be captured here:
+Base_Zynq_MPSoC_zynq_ultra_ps_e_0_0_synth_1: /2020/mpsoc/training/irq_pl/project_1/project_1.runs/Base_Zynq_MPSoC_zynq_ultra_ps_e_0_0_synth_1/runme.log
+Base_Zynq_MPSoC_xbar_0_synth_1: /2020/mpsoc/training/irq_pl/project_1/project_1.runs/Base_Zynq_MPSoC_xbar_0_synth_1/runme.log
+Base_Zynq_MPSoC_myip_0_0_synth_1: /2020/mpsoc/training/irq_pl/project_1/project_1.runs/Base_Zynq_MPSoC_myip_0_0_synth_1/runme.log
+synth_1: /2020/mpsoc/training/irq_pl/project_1/project_1.runs/synth_1/runme.log
+[Mon Sep 14 10:52:39 2020] Launched impl_1...
+Run output will be captured here: /2020/mpsoc/training/irq_pl/project_1/project_1.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:31 ; elapsed = 00:00:29 . Memory (MB): peak = 7321.895 ; gain = 232.168 ; free physical = 386 ; free virtual = 33568
+ipx::edit_ip_in_project -upgrade true -name myip_v1_1_project -directory /2020/mpsoc/training/irq_pl/project_1/project_1.tmp/myip_v1_1_project /2020/mpsoc/training/irq_pl/ip_repo/myip_1.0/component.xml
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/2020/xilinx/vivado/2018.3/vivado/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/2020/xilinx/vivado/2018.3/Vivado/2018.3/data/ip'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/2020/mpsoc/training/irq_pl/ip_repo/myip_1.0'.
+INFO: [IP_Flow 19-795] Syncing license key meta-data
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/2020/mpsoc/training/irq_pl/ip_repo/myip_1.0/hdl/myip_v1_0_S00_AXI.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/2020/mpsoc/training/irq_pl/ip_repo/myip_1.0/hdl/myip_v1_0.v:]
+update_compile_order -fileset sources_1
+current_project project_1
+file copy -force /2020/mpsoc/training/irq_pl/project_1/project_1.runs/impl_1/Base_Zynq_MPSoC_wrapper.sysdef /2020/mpsoc/training/irq_pl/project_1/project_1.sdk/Base_Zynq_MPSoC_wrapper.hdf
+
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Sep 14 17:44:52 2020...
